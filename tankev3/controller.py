@@ -22,3 +22,10 @@ for m, p in zip(motors, power):
     while any(m.state for m in motors):
         sleep(0.1)
 
+def make_move(self, motor, speed):
+        def move(state):
+            if state:
+                motor.on(speed)
+            else:
+                motor.stop()
+        return move
